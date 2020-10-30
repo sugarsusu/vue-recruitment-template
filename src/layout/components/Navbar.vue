@@ -7,13 +7,13 @@
     <div class="right-menu">
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
-          <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar">
+          <img :src="loginDefaultImg" class="user-avatar">
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
           <router-link to="/">
             <el-dropdown-item>
-              Home
+              个人中心Home
             </el-dropdown-item>
           </router-link>
           <a target="_blank" href="https://github.com/sugarsusu/vue-recruitment-template.git">
@@ -46,6 +46,11 @@ export default {
       'sidebar',
       'avatar'
     ])
+  },
+  data() {
+    return {
+      loginDefaultImg: 'https://www.zufedfc.edu.cn/__local/E/DA/E3/55AC5803E234459B419E9D07729_4BD66CA1_A89.png'
+    }
   },
   methods: {
     toggleSideBar() {

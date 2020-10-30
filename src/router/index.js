@@ -51,7 +51,8 @@ export const constantRoutes = [
       path: 'dashboard',
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
-      meta: { title: '职位区', icon: 'dashboard' }
+      // meta: { title: '职位区', icon: 'dashboard' }
+      meta: { title: '职位区' }
     }]
   },
 
@@ -60,19 +61,22 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/example/table',
     name: 'Example',
-    meta: { title: '例如', icon: 'el-icon-s-help' },
+    // meta: { title: '例如', icon: 'el-icon-s-help' },
+    meta: { title: '例如' },
     children: [
       {
         path: 'table',
         name: 'Table',
         component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
+        // meta: { title: 'Table', icon: 'table' }
+        meta: { title: 'Table' }
       },
       {
         path: 'tree',
         name: 'Tree',
         component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
+        // meta: { title: 'Tree', icon: 'tree' }
+        meta: { title: 'Tree' }
       }
     ]
   },
@@ -85,7 +89,8 @@ export const constantRoutes = [
         path: 'index',
         name: 'Form',
         component: () => import('@/views/form/index'),
-        meta: { title: '表单', icon: 'form' }
+        // meta: { title: '表单', icon: 'form' }
+        meta: { title: '表单' }
       }
     ]
   },
@@ -95,9 +100,12 @@ export const constantRoutes = [
     component: Layout,
     redirect: '/nested/menu1',
     name: 'Nested',
+    // meta: {
+    //   title: '不知道Nested',
+    //   icon: 'nested'
+    // },
     meta: {
-      title: '不知道Nested',
-      icon: 'nested'
+      title: '不知道Nested'
     },
     children: [
       {
