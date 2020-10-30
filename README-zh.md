@@ -1,6 +1,6 @@
-# vue-admin-template
+# vue-recruitment-template
 
-> 这是一个极简的 vue admin 管理后台。它只包含了 Element UI & axios & iconfont & permission control & lint，这些搭建后台必要的东西。
+> 这是一个极简的 vue recruitment 管理后台。它只包含了 Element UI & axios & iconfont & permission control & lint &vue-admin-template，这些搭建后台必要的东西。
 
 [线上地址](http://panjiachen.github.io/vue-admin-template)
 
@@ -46,7 +46,7 @@ npm install --registry=https://registry.npm.taobao.org
 npm run dev
 ```
 
-浏览器访问 [http://localhost:9528](http://localhost:9528)
+浏览器访问 [http://localhost:8888](http://localhost:8888)
 
 ## 发布
 
