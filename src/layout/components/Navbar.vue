@@ -41,16 +41,16 @@ export default {
     Breadcrumb,
     Hamburger
   },
+  data() {
+    return {
+      loginDefaultImg: 'https://www.zufedfc.edu.cn/__local/E/DA/E3/55AC5803E234459B419E9D07729_4BD66CA1_A89.png'
+    }
+  },
   computed: {
     ...mapGetters([
       'sidebar',
       'avatar'
     ])
-  },
-  data() {
-    return {
-      loginDefaultImg: 'https://www.zufedfc.edu.cn/__local/E/DA/E3/55AC5803E234459B419E9D07729_4BD66CA1_A89.png'
-    }
   },
   methods: {
     toggleSideBar() {
