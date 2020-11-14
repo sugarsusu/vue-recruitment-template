@@ -11,7 +11,7 @@
     >
       <el-table-column align="center" label="ID" width="95">
         <template slot-scope="scope">
-          {{ scope.$index }}
+          {{ scope.$index+1 }}
         </template>
       </el-table-column>
       <el-table-column label="职位Title">
@@ -72,6 +72,7 @@ export default {
       this.listLoading = true
       getList().then(response => {
         this.list = response.data.items
+        console.log('111111111___', this.list)
         this.listLoading = false
       })
     }

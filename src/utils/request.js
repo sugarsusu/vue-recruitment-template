@@ -57,8 +57,8 @@ service.interceptors.response.use(
       if (res.code === 50008 || res.code === 50012 || res.code === 50014) {
         // to re-login
         MessageBox.confirm('您已注销, 可以退出此页面或者重新登录', '确认注销', {
-          confirmButtonText: 'Re-Login',
-          cancelButtonText: 'Cancel',
+          confirmButtonText: '重新登录',
+          cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {
           store.dispatch('user/resetToken').then(() => {
