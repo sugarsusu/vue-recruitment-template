@@ -52,7 +52,7 @@ export const constantRoutes = [
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
       // meta: { title: '职位区', icon: 'dashboard' }
-      meta: { title: '职位区' }
+      meta: { title: '职位区', icon: 'job' }
     }]
   },
 
@@ -62,21 +62,21 @@ export const constantRoutes = [
     redirect: '/example/table',
     name: 'Example',
     // meta: { title: '例如', icon: 'el-icon-s-help' },
-    meta: { title: '例如' },
+    meta: { title: '我的推荐', icon: 'recommend' },
     children: [
       {
         path: 'table',
         name: 'Table',
         component: () => import('@/views/table/index'),
         // meta: { title: 'Table', icon: 'table' }
-        meta: { title: 'Table' }
+        meta: { title: 'Table已面试' }
       },
       {
         path: 'tree',
         name: 'Tree',
         component: () => import('@/views/tree/index'),
         // meta: { title: 'Tree', icon: 'tree' }
-        meta: { title: 'Tree' }
+        meta: { title: 'Tree未面试' }
       }
     ]
   },
@@ -90,7 +90,7 @@ export const constantRoutes = [
         name: 'Form',
         component: () => import('@/views/form/index'),
         // meta: { title: '表单', icon: 'form' }
-        meta: { title: '表单' }
+        meta: { title: '积分商城', icon: 'integral-mall' }
       }
     ]
   },

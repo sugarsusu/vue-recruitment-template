@@ -37,17 +37,17 @@ module.exports = {
       errors: true
     },
     // 接口新增
-    proxy: {
-      '/testAll/': {
-        target: 'http://10.3.20.27:8181',
-        changeOrigin: true,
-        ws: true,
-        pathRewrite: {
-          '^/testAll':''
-        }
-      }
-    },
-    // before: require('./mock/mock-server.js')
+    // proxy: {
+    //   '/testAll/': {
+    //     target: 'http://10.3.20.27:8181',
+    //     changeOrigin: true,
+    //     ws: true,
+    //     pathRewrite: {
+    //       '^/testAll':''
+    //     }
+    //   }
+    // },
+    before: require('./mock/mock-server.js')
   },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that
