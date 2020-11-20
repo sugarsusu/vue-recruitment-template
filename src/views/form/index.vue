@@ -2,17 +2,17 @@
 <template>
   <div class="app-container">
     <el-form ref="form" :model="form" label-width="120px">
-      <h1>hello</h1>
-      <el-form-item label="Activity name">
+      <h1>hello表单</h1>
+      <el-form-item label="job name">
         <el-input v-model="form.name" />
       </el-form-item>
-      <el-form-item label="Activity zone">
+      <el-form-item label="job zone">
         <el-select v-model="form.region" placeholder="please select your zone">
           <el-option label="Zone one" value="shanghai" />
           <el-option label="Zone two" value="beijing" />
         </el-select>
       </el-form-item>
-      <el-form-item label="Activity time">
+      <el-form-item label="job time">
         <el-col :span="11">
           <el-date-picker v-model="form.date1" type="date" placeholder="Pick a date" style="width: 100%;" />
         </el-col>
@@ -21,15 +21,15 @@
           <el-time-picker v-model="form.date2" type="fixed-time" placeholder="Pick a time" style="width: 100%;" />
         </el-col>
       </el-form-item>
-      <el-form-item label="Instant delivery">
+      <el-form-item label="紧急">
         <el-switch v-model="form.delivery" />
       </el-form-item>
-      <el-form-item label="Activity type">
+      <el-form-item label="job type">
         <el-checkbox-group v-model="form.type">
-          <el-checkbox label="Online activities" name="type" />
-          <el-checkbox label="Promotion activities" name="type" />
-          <el-checkbox label="Offline activities" name="type" />
-          <el-checkbox label="Simple brand exposure" name="type" />
+          <el-checkbox label="视频面试" name="type" />
+          <el-checkbox label="电话面试" name="type" />
+          <el-checkbox label="线下面试" name="type" />
+          <!-- <el-checkbox label="Simple brand exposure" name="type" /> -->
         </el-checkbox-group>
       </el-form-item>
       <el-form-item label="Resources">
@@ -38,7 +38,7 @@
           <el-radio label="Venue" />
         </el-radio-group>
       </el-form-item>
-      <el-form-item label="Activity form">
+      <el-form-item label="job form">
         <el-input v-model="form.desc" type="textarea" />
       </el-form-item>
       <el-form-item>
