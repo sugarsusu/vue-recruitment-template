@@ -22,7 +22,7 @@ const users = {
     name: '普通用户'
   }
 }
-
+// mock数据，拦截请求
 module.exports = [
   // user login
   {

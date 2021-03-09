@@ -16,7 +16,7 @@
       </el-table-column>
       <el-table-column label="职位Title">
         <template slot-scope="scope">
-          {{ 'AHSIDAHODHGAUDE浙江财经大学东方学院'||scope.row.title }}
+          {{ 'AHSIDAHODHGAUDEzufedfc'||scope.row.title }}
         </template>
       </el-table-column>
       <el-table-column label="111Author" width="110" align="center">
