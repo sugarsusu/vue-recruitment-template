@@ -12,7 +12,7 @@
 
 export default {
   name: 'Login',
-  data () {
+  data() {
     return {
       loginForm: {
         username: '',
@@ -22,7 +22,7 @@ export default {
     }
   },
   methods: {
-    login () {
+    login() {
       this.$axios
         .post('/login', {
           username: this.loginForm.username,
@@ -30,10 +30,11 @@ export default {
         })
         .then(successResponse => {
           if (successResponse.data.code === 200) {
-            this.$router.replace({path: '/index'})
+            this.$router.replace({ path: '/index' })
           }
         })
         .catch(failResponse => {
+          this.$toast.text('账号或密码错误')
         })
     }
   }
