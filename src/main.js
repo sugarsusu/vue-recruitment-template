@@ -12,10 +12,12 @@ import '@/styles/index.scss' // global css
 import App from './App'
 import store from './store'
 import router from './router'
-
+import axios from 'axios'
 import '@/icons' // icon
 import '@/permission' // permission control
+import Router from 'vue-router'
 
+Vue.use(Router)
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api
@@ -32,10 +34,10 @@ if (process.env.NODE_ENV === 'production') {
   const { mockXHR } = require('../mock')
   mockXHR()
 }
-
+// axios.defaults.withCredentials = true
 // 设置反向代理，前端请求默认发送到 http://localhost:8443/api
-var axios = require('axios')
-axios.defaults.baseURL = 'http://10.1.134.84:8443/api'
+// var axios = require('axios')
+// axios.defaults.baseURL = 'http://10.1.134.84:4001'
 // 全局注册，之后可在其他组件中通过 this.$axios 发送数据
 Vue.prototype.$axios = axios
 
