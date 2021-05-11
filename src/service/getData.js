@@ -23,39 +23,39 @@ let checkLogin = (data) => axios.post(`http://10.1.134.84:4001/march/login`, JSO
 * 参数：
 * 参数名 必选 类型 说明
 */
-let addBooks = (data) => axios.post(`/march/books`, JSON.stringify(data), { headers: { 'Content-Type': 'application/json' } })
+let addBooks = (data) => axios.post(`http://10.1.134.84:4001/march/books`, JSON.stringify(data), { headers: { 'Content-Type': 'application/json' } })
 
 /**
  *获取书籍信息
  *参数名 必选 类型 说明
  */
-let getBooks = () => axios.get('/march/getBooks')
+let getBooks = () => axios.get('http://10.1.134.84:4001/march/getBooks')
 
 /**
  *切换页面书籍信息
  *参数名 必选 类型 说明
  */
-let searchBookPages = (keywords) => axios.get('/march/search?keywords=' + keywords)
+let searchBookPages = (keywords) => axios.get('http://10.1.134.84:4001/march/search?keywords=' + keywords)
 
 /**
 * 删除图书
 * 参数：
 * 参数名 必选 类型 说明
 */
-let deleteBooks = (data) => axios.post(`/march/delete`, JSON.stringify(data), { headers: { 'Content-Type': 'application/json' } })
+let deleteBooks = (data) => axios.post(`http://10.1.134.84:4001/march/delete`, JSON.stringify(data), { headers: { 'Content-Type': 'application/json' } })
 
 /**
  *分类获取书籍信息
  *参数名 必选 类型 说明
  */
-let categoriesBooks = (cid) => axios.get('/march/categories/' + cid + '/books')
+let categoriesBooks = (cid) => axios.get('http://10.1.134.84:4001/march/categories/' + cid + '/books')
 
 /**
 * 删除图书
 * 参数：
 * 参数名 必选 类型 说明
 */
-let register = (data) => axios.post(`/march/register`, JSON.stringify(data), { headers: { 'Content-Type': 'application/json' } })
+let register = (data) => axios.post(`http://10.1.134.84:4001/march/register`, JSON.stringify(data), { headers: { 'Content-Type': 'application/json' } })
 
 
 /**
@@ -67,47 +67,47 @@ let logout = () => axios.get(`http://10.1.134.84:4001/march/logout`);
  * 用户信息修改
  * 字段
  */
- let userInfoEdit = (data) => axios.post(`/march/admin/user`,JSON.stringify(data), { headers: { 'Content-Type': 'application/json' } });
+ let userInfoEdit = (data) => axios.post(`http://10.1.134.84:4001/march/admin/user`,JSON.stringify(data), { headers: { 'Content-Type': 'application/json' } });
 /**
  * 用户信息查询
  * 字段
  */
- let userDetail = (username) => axios.get('/march/admin/userDetail?username=' + username);
+ let userDetail = (username) => axios.get('http://10.1.134.84:4001/march/admin/userDetail?username=' + username);
 
  /**
  * 用户信息列表
  * 字段
  */
-  let userList = () => axios.get('/march/admin/user');
+  let userList = () => axios.get('http://10.1.134.84:4001/march/admin/user');
 
  /**
  * 角色列表
  * 字段
  */
-  let roleList = () => axios.get('/march/admin/role');
+  let roleList = () => axios.get('http://10.1.134.84:4001/march/admin/role');
  /**
  * 删除用户
  * 字段
  */
-  let deleUser = (id) => axios.get('/march/admin/deleUser?id='+id);
+  let deleUser = (id) => axios.get('http://10.1.134.84:4001/march/admin/deleUser?id='+id);
  /**
  * 重置密码
  * 字段
  */
-  let resetPassword = (data) => axios.post(`/march/admin/password`,JSON.stringify(data), { headers: { 'Content-Type': 'application/json' } });
+  let resetPassword = (data) => axios.post(`http://10.1.134.84:4001/march/admin/password`,JSON.stringify(data), { headers: { 'Content-Type': 'application/json' } });
   
 
-  let rolePerm = () => axios.get('/march/admin/role/perm');
+  let rolePerm = () => axios.get('http://10.1.134.84:4001/march/admin/role/perm');
   
-  let roleMenu = () => axios.get('/march/admin/role/menu');
+  let roleMenu = () => axios.get('http://10.1.134.84:4001/march/admin/role/menu');
   
  /**
  * 添加角色
  * 字段
  */
-  let addRole = (data) => axios.post(`/march/admin/role`,JSON.stringify(data), { headers: { 'Content-Type': 'application/json' } });
+  let addRole = (data) => axios.post(`http://10.1.134.84:4001/march/admin/role`,JSON.stringify(data), { headers: { 'Content-Type': 'application/json' } });
   
-  let recruitList = () => axios.get('/march/recruitList');
+  let recruitList = () => axios.get('http://10.1.134.84:4001/march/recruitList');
 
   
 export {
