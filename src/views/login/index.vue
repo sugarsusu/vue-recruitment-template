@@ -41,16 +41,24 @@
         </span>
       </el-form-item>
 
-      <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">Login</el-button>
-
+      <el-button
+        :loading="loading"
+        type="primary"
+        style="width:100%;margin-bottom:30px;"
+        @click.native.prevent="handleLogin"
+        >Login</el-button>
       <div class="tips">
+        <span>没有账号</span>
+        <span class="register-fonts" @click="goRegister()">去注册</span>
+      </div>
+      <!-- <div class="tips">
         <span style="margin-right:20px;">用户名: admin</span>
         <span> 密码: any</span>
       </div>
       <div class="tips">
         <span style="margin-right:20px;">用户名: 普通用户</span>
         <span> 密码: any</span>
-      </div>
+      </div> -->
 
     </el-form>
   </div>
@@ -58,6 +66,7 @@
 
 <script>
 import { validUsername } from '@/utils/validate'
+import * as getData from '../../service/getData'
 
 export default {
   name: 'Login',
@@ -79,7 +88,7 @@ export default {
     return {
       loginForm: {
         username: 'admin',
-        password: '111111'
+        password: '1234567'
       },
       loginRules: {
         username: [{ required: true, trigger: 'blur', validator: validateUsername }],
@@ -109,13 +118,31 @@ export default {
         this.$refs.password.focus()
       })
     },
+    goRegister() {
+      sessionStorage.setItem('userName', 1)
+      this.$router.push({ path: this.redirect || '/Register' })
+    },
     handleLogin() {
+      const that = this
       this.$refs.loginForm.validate(valid => {
         if (valid) {
-          this.loading = true
-          this.$store.dispatch('user/login', this.loginForm).then(() => {
-            this.$router.push({ path: this.redirect || '/' })
-            this.loading = false
+          // that.loading = true
+          // this.$store.dispatch( this.loginForm).then(() => {
+          // //   debugger
+          //   this.$router.push({ path: this.redirect || '/' })
+          //   this.loading = false
+          // }).catch(() => {
+          //   this.loading = false
+          // })
+          getData.checkLogin(that.loginForm).then(res => {
+            if (res.data.code === 200) {
+              // var path = this.$route.query.redirect
+              // this.$router.replace({ path: path === '/' || path === undefined ? '/dashboard' : path })
+              that.$router.push({ path: that.redirect || '/dashboard' })
+              // window.location.href = "./#/dashboard"
+              that.loading = false
+              sessionStorage.setItem('userName', res.data.data)
+            }
           }).catch(() => {
             this.loading = false
           })
@@ -181,6 +208,9 @@ $bg:#123313;
 $dark_gray:#889aa4;
 $light_gray:#eee;
 
+.register-fonts{
+
+}
 .login-container {
   min-height: 100%;
   width: 100%;
