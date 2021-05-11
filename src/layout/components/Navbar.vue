@@ -22,7 +22,7 @@
           <a target="_blank" href="">
             <el-dropdown-item>Docs</el-dropdown-item>
           </a>
-          <el-dropdown-item divided @click.native="logout">
+          <el-dropdown-item divided @click.native="Logout">
             <span style="display:block;">Log Out</span>
           </el-dropdown-item>
         </el-dropdown-menu>
@@ -35,6 +35,7 @@
 import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
+import { logout } from '../../service/getData'
 
 export default {
   components: {
@@ -56,10 +57,31 @@ export default {
     toggleSideBar() {
       this.$store.dispatch('app/toggleSideBar')
     },
-    async logout() {
-      await this.$store.dispatch('user/logout')
-      this.$router.push(`/login?redirect=${this.$route.fullPath}`)
-    }
+    Logout() {
+      this.$confirm("确认注销吗?","提示", {
+        type: "warning"
+      })
+        .then( ()=> {
+          logout().then(res => {
+            if (res.data.code === 200) {
+              debugger
+              window.sessionStorage.clear();
+              // this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+              this.$router.push({path: '/login'})
+            }
+          }).catch(_ => {
+          console.log(_);
+        });
+      })
+      .catch(() => {});
+    },
+    // async logout() {
+    //   this.$confirm("确认注销吗?", "提示", {
+    //     type: "warning"
+    //   })
+    //   await this.$store.dispatch('user/logout')
+    //   this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+    // }
   }
 }
 </script>
