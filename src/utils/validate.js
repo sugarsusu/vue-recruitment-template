@@ -1,6 +1,3 @@
-/**
- * Created by PanJiaChen on 16/11/18.
- */
 
 /**
  * @param {string} path
@@ -15,6 +12,6 @@ export function isExternal(path) {
  * @returns {Boolean}
  */
 export function validUsername(str) {
-  const valid_map = ['admin', '普通用户']
-  return valid_map.indexOf(str.trim()) >= 0
+  // const valid_map = ['admin', '普通用户']
+  return str.trim() !== 0
 }
