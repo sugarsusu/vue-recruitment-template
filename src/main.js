@@ -1,5 +1,5 @@
 import Vue from 'vue'
-
+// import { Toast } from 'vant';
 import 'normalize.css/normalize.css' // A modern alternative to CSS resets
 
 import ElementUI from 'element-ui'
@@ -18,6 +18,7 @@ import '@/permission' // permission control
 import Router from 'vue-router'
 
 Vue.use(Router)
+// Vue.use(Toast);
 /**
  * If you don't want to use mock-server
  * you want to use MockJs for mock api
@@ -37,7 +38,7 @@ if (process.env.NODE_ENV === 'production') {
 // axios.defaults.withCredentials = true
 // 设置反向代理，前端请求默认发送到 http://localhost:8443/api
 // var axios = require('axios')
-// axios.defaults.baseURL = 'http://10.1.134.84:4001'
+// axios.defaults.baseURL = 'http://192.168.43.98:8822'
 // 全局注册，之后可在其他组件中通过 this.$axios 发送数据
 Vue.prototype.$axios = axios
 

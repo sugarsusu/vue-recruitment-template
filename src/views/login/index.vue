@@ -79,7 +79,7 @@ export default {
       }
     }
     const validatePassword = (rule, value, callback) => {
-      if (value.length < 6) {
+      if (value.length < 1) {
         callback(new Error('The password can not be less than 6 digits'))
       } else {
         callback()
@@ -124,6 +124,7 @@ export default {
     },
     handleLogin() {
       const that = this
+      console.log("333");
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           // that.loading = true
@@ -134,11 +135,16 @@ export default {
           // }).catch(() => {
           //   this.loading = false
           // })
+          console.log("2222");
+          debugger
           getData.checkLogin(that.loginForm).then(res => {
             if (res.data.code === 200) {
+              sessionStorage.setItem('userName',res.data.data.username);
+              sessionStorage.setItem('userId',res.data.data.id);
+              sessionStorage.setItem('user', JSON.stringify(res.data.data))
               // var path = this.$route.query.redirect
               // this.$router.replace({ path: path === '/' || path === undefined ? '/dashboard' : path })
-              that.$router.push({ path: that.redirect || '/dashboard' })
+              that.$router.push({ path: '/index/positionList' || '/index/positionList' })
               // window.location.href = "./#/dashboard"
               that.loading = false
               sessionStorage.setItem('userName', res.data.data)

@@ -11,6 +11,7 @@
       :key="index"
       class="ss"
       style="margin: 18px 2%;width: 95%;position: relative; font-size: 14px;"
+      @click.prevent="openDialog(item)"
     >
       <div class="detail-name">
         <span>姓名：{{item.recommendedName}}</span>
@@ -80,8 +81,6 @@ export default {
     }
   },
   mounted () {
-    this.listUsers()
-    this.listRoles()
     this.getMyResumeInfo()
   },
   computed: {
@@ -90,20 +89,8 @@ export default {
     }
   },
   methods: {
-    listUsers () {
-      console.log('8888')
-      getData.userList().then(resp => {
-        if (resp && resp.data.code === 200) {
-          this.users = resp.data.data
-        }
-      })
-    },
-    listRoles () {
-      getData.roleList().then(resp => {
-        if (resp && resp.data.code === 200) {
-          this.roles = resp.data.data
-        }
-      })
+    openDialog(row){
+      this.$router.push({ path: '/ResumeDetail', query: { recruitId: row.recruitId ,hrId: row.hrId, tjId: row.tjId, resumeId: row.resumeId }})
     },
     getMyResumeInfo(){
       const userId = sessionStorage.getItem('userId')
@@ -136,34 +123,6 @@ export default {
         this.$alert('不能禁用管理员账户')
       }
     },
-    onSubmit (user) {
-      let _this = this
-      // 根据视图绑定的角色 id 向后端传送角色信息
-      let roles = []
-      for (let i = 0; i < _this.selectedRolesIds.length; i++) {
-        for (let j = 0; j < _this.roles.length; j++) {
-          if (_this.selectedRolesIds[i] === _this.roles[j].id) {
-            roles.push(_this.roles[j])
-          }
-        }
-      }
-      this.$axios.put('/admin/user', {
-        username: user.username,
-        name: user.name,
-        phone: user.phone,
-        email: user.email,
-        roles: roles
-      }).then(resp => {
-        if (resp && resp.data.code === 200) {
-          this.$alert('用户信息修改成功')
-          this.dialogFormVisible = false
-          // 修改角色后重新请求用户信息，实现视图更新
-          this.listUsers()
-        } else {
-          this.$alert(resp.data.message)
-        }
-      })
-    },
     editUser (user) {
       this.dialogFormVisible = true
       this.selectedUser = user
@@ -175,6 +134,7 @@ export default {
       }
       this.selectedRolesIds = roleIds
     },
+    // 移除简历
     resumetDel(row) {
       console.log(row)
       getData.resumetDel(row).then(res => {

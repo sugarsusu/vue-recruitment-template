@@ -11,17 +11,17 @@
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
-          <router-link to="/">
+          <router-link to="/example/myRecommend">
             <el-dropdown-item>
-              个人中心Home
+              个人中心-我的推荐
             </el-dropdown-item>
           </router-link>
-          <a target="_blank" href="https://github.com/sugarsusu/vue-recruitment-template.git">
+          <a target="_blank" href="https://github.com/sugarsusu/vue-recruitment-template">
             <el-dropdown-item>Github</el-dropdown-item>
           </a>
-          <a target="_blank" href="">
-            <el-dropdown-item>Docs</el-dropdown-item>
-          </a>
+          <!-- <a target="_blank" href="/login">
+            <el-dropdown-item>公司简介</el-dropdown-item>
+          </a> -->
           <el-dropdown-item divided @click.native="Logout">
             <span style="display:block;">Log Out</span>
           </el-dropdown-item>
@@ -64,7 +64,6 @@ export default {
         .then( ()=> {
           logout().then(res => {
             if (res.data.code === 200) {
-              debugger
               window.sessionStorage.clear();
               // this.$router.push(`/login?redirect=${this.$route.fullPath}`)
               this.$router.push({path: '/login'})

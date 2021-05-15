@@ -51,131 +51,183 @@ export const constantRoutes = [
     component: () => import('@/views/404'),
     hidden: true
   },
-
   {
+    path: '/detail/:recruitId',
+    name: 'detail',
+    component: () => import('@/views/人才推荐/detail.vue')
+  },
+  {
+    path: '/ResumeDetail',
+    name: 'ResumeDetail',
+    component: () => import('@/views/ResumeUpload/ResumeDetail.vue')
+  },
+  {
+    path: '/ResumeUpload',
+    name: 'ResumeUpload',
+    component: () => import('@/views/ResumeUpload/index.vue')
+  },
+  { 
     path: '/',
     component: Layout,
     redirect: '/dashboard',
     children: [{
       path: 'dashboard',
       name: 'Dashboard',
-      component: () => import('@/views/dashboard/index'),
+      component: () => import('@/views/人才推荐/职位列表.vue'),
       // meta: { title: '职位区', icon: 'dashboard' }
       meta: { title: '职位区', icon: 'job' }
     }]
   },
+  // {
+  //   path: '/index',
+  //   component: Layout,
+  //   redirect: '/index/positionList',
+  //   children: [{
+  //     path: 'positionList',
+  //     name: 'Dashboard',
+  //     component: () => import('@/views/人才推荐/职位列表.vue'),
+  //     // meta: { title: '职位区', icon: 'dashboard' }
+  //     meta: { title: '职位区', icon: 'job' }
+  //   }]
+  // },
 
-  {
+  { 
     path: '/example',
     component: Layout,
-    redirect: '/example/table',
+    redirect: '/example/myRecommend',
     name: 'Example',
     // meta: { title: '例如', icon: 'el-icon-s-help' },
-    meta: { title: '我的推荐', icon: 'recommend' },
+    meta: { title: '个人中心', icon: 'recommend' },
     children: [
       {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
+        path: 'myRecommend',
+        name: 'myRecommend',
+        component: () => import('@/views/人才推荐/我的推荐.vue'),
         // meta: { title: 'Table', icon: 'table' }
-        meta: { title: 'Table已面试' }
+        meta: { title: '我的推荐' }
       },
       {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
+        path: 'myPoints',
+        name: 'myPoints',
+        component: () => import('@/views/人才推荐/我的积分.vue'),
         // meta: { title: 'Tree', icon: 'tree' }
-        meta: { title: 'Tree未面试' }
+        meta: { title: '我的积分' }
       }
     ]
-  },
-
-  {
-    path: '/form',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        // meta: { title: '表单', icon: 'form' }
-        meta: { title: '积分商城', icon: 'integral-mall' }
-      }
-    ]
-  },
-
-  {
-    path: '/nested',
-    component: Layout,
-    redirect: '/nested/menu1',
-    name: 'Nested',
-    // meta: {
-    //   title: '不知道Nested',
-    //   icon: 'nested'
-    // },
-    meta: {
-      title: '不知道Nested'
     },
-    children: [
-      {
-        path: 'menu1',
-        component: () => import('@/views/nested/menu1/index'), // Parent router-view
-        name: 'Menu1',
-        meta: { title: 'Menu1' },
-        children: [
-          {
-            path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1'),
-            name: 'Menu1-1',
-            meta: { title: 'Menu1-1' }
-          },
-          {
-            path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2'),
-            name: 'Menu1-2',
-            meta: { title: 'Menu1-2' },
-            children: [
-              {
-                path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
-                meta: { title: 'Menu1-2-1' }
-              },
-              {
-                path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
-                meta: { title: 'Menu1-2-2' }
-              }
-            ]
-          },
-          {
-            path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3'),
-            name: 'Menu1-3',
-            meta: { title: 'Menu1-3' }
-          }
-        ]
-      },
-      {
-        path: 'menu2',
-        component: () => import('@/views/nested/menu2/index'),
-        name: 'Menu2',
-        meta: { title: 'menu2' }
-      }
-    ]
-  },
 
-  {
-    path: 'external-link',
-    component: Layout,
-    children: [
-      {
-        path: 'https://element.eleme.cn/2.0/#/es',
-        meta: { title: '外部链接', icon: 'link' }
-      }
-    ]
-  },
+
+  // {
+  //   path: '/example',
+  //   component: Layout,
+  //   redirect: '/example/table',
+  //   name: 'Example',
+  //   // meta: { title: '例如', icon: 'el-icon-s-help' },
+  //   meta: { title: '我的推荐', icon: 'recommend' },
+  //   children: [
+  //     {
+  //       path: 'table',
+  //       name: 'Table',
+  //       component: () => import('@/views/table/index'),
+  //       // meta: { title: 'Table', icon: 'table' }
+  //       meta: { title: 'Table已面试' }
+  //     },
+  //     {
+  //       path: 'tree',
+  //       name: 'Tree',
+  //       component: () => import('@/views/tree/index'),
+  //       // meta: { title: 'Tree', icon: 'tree' }
+  //       meta: { title: 'Tree未面试' }
+  //     }
+  //   ]
+  // },
+
+  // {
+  //   path: '/form',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       name: 'Form',
+  //       component: () => import('@/views/form/index'),
+  //       // meta: { title: '表单', icon: 'form' }
+  //       meta: { title: '积分商城', icon: 'integral-mall' }
+  //     }
+  //   ]
+  // },
+
+  // {
+  //   path: '/nested',
+  //   component: Layout,
+  //   redirect: '/nested/menu1',
+  //   name: 'Nested',
+  //   // meta: {
+  //   //   title: '不知道Nested',
+  //   //   icon: 'nested'
+  //   // },
+  //   meta: {
+  //     title: '不知道Nested'
+  //   },
+  //   children: [
+  //     {
+  //       path: 'menu1',
+  //       component: () => import('@/views/nested/menu1/index'), // Parent router-view
+  //       name: 'Menu1',
+  //       meta: { title: 'Menu1' },
+  //       children: [
+  //         {
+  //           path: 'menu1-1',
+  //           component: () => import('@/views/nested/menu1/menu1-1'),
+  //           name: 'Menu1-1',
+  //           meta: { title: 'Menu1-1' }
+  //         },
+  //         {
+  //           path: 'menu1-2',
+  //           component: () => import('@/views/nested/menu1/menu1-2'),
+  //           name: 'Menu1-2',
+  //           meta: { title: 'Menu1-2' },
+  //           children: [
+  //             {
+  //               path: 'menu1-2-1',
+  //               component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
+  //               name: 'Menu1-2-1',
+  //               meta: { title: 'Menu1-2-1' }
+  //             },
+  //             {
+  //               path: 'menu1-2-2',
+  //               component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
+  //               name: 'Menu1-2-2',
+  //               meta: { title: 'Menu1-2-2' }
+  //             }
+  //           ]
+  //         },
+  //         {
+  //           path: 'menu1-3',
+  //           component: () => import('@/views/nested/menu1/menu1-3'),
+  //           name: 'Menu1-3',
+  //           meta: { title: 'Menu1-3' }
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       path: 'menu2',
+  //       component: () => import('@/views/nested/menu2/index'),
+  //       name: 'Menu2',
+  //       meta: { title: 'menu2' }
+  //     }
+  //   ]
+  // },
+
+  // {
+  //   path: 'external-link',
+  //   component: Layout,
+  //   children: [
+  //     {
+  //       path: 'https://element.eleme.cn/2.0/#/es',
+  //       meta: { title: '外部链接', icon: 'link' }
+  //     }
+  //   ]
+  // },
 
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
